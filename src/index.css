@@ -1,70 +1,109 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Abril+Fatface&display=swap');
 
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+@theme{
+  --color-yellow: #FFDC06;
+  --color-gray: #828282;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  --font-poppins: "Poppins";
+  --font-abril-fatface: "Abril Fatface";
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+html, 
+body{
+  width: 100%;
+  color: #313131;
+  scroll-behavior: smooth;
 }
 
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+@utility flex-center {
+    @apply flex justify-center items-center;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+@utility text-gradient {
+    background: linear-gradient(to right, #d6d6d6, #000000);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;  
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+@layer components{
+  main{
+    @apply w-full;
   }
-  a:hover {
-    color: #747bff;
+
+  nav{
+    @apply fixed z-50 w-full bg-white;
+
+  div{
+      @apply flex md:flex-row flex-col md:justify-between items-center container mx-auto my-8;
+    }
+
+    p{
+      @apply text-lg font-bold cursor-pointer;
+    }
+    a {
+      @apply md:text-base text-sm cursor-pointer;
+    }
+    ul {
+      @apply flex lg:gap-12 gap-8;
+    }
   }
-  button {
-    background-color: #f9f9f9;
+
+  #home{
+    @apply min-h-screen flex justify-center items-center;
+  }
+
+  /* THIS becomes the “card” */
+  #home-container{
+    @apply relative w-[80%] max-w-6xl min-h-[70vh] rounded-3xl overflow-hidden;
+  }
+
+  /* box fills the card */
+  #home-box{
+    @apply absolute inset-0;
+  }
+
+  /* background fills card */
+  #home-background{
+    @apply absolute inset-0 w-full h-full object-cover z-[-1];
+  }
+
+  /* human sits on bottom center, larger like your 2nd pic */
+  #home-human{
+    @apply absolute bottom-0 left-1/2 -translate-x-1/2 z-[3] w-[50%] h-auto;
+  }
+
+  /* title centered horizontally, vertically around middle */
+  .title{
+    @apply absolute inset-x-0 top-1/2 -translate-y-1/2 flex justify-between items-center
+           font-poppins font-black tracking-tighter uppercase;
+  }
+
+  .front{
+    font-size: clamp(3rem, 12vw, 10rem);
+    padding-left: clamp(2rem, 4vw, 20rem); /* 32px → 320px */
+    @apply text-yellow z-[10];
+  }
+
+  .back{
+    font-size: clamp(3rem, 8vw, 5rem);
+    padding-right: clamp(2rem, 3vw, 12rem); /* 32px → 248px */
+    @apply text-gradient z-[1];
+  }
+
+  /* mini text under “WITCH” area */
+  #mini-text{
+    @apply absolute right-10 md:right-14 top-1/2 translate-y-[1.5rem] md:translate-y-[2.5rem] 
+            text-sm md:text-base text-gray z-[6];
+  }
+
+  /* bottom corners INSIDE the card */
+  #bottom-left{
+    @apply font-abril-fatface text-yellow text-4xl font-black absolute bottom-8 left-10 md:left-14 z-[6];
+  }
+
+  #bottom-right{
+    @apply absolute bottom-8 right-10 md:right-14 text-right z-[6];
   }
 }
