@@ -27,6 +27,10 @@ const Arrivals= ()=>{
                     </div>
                 ))}
             </div>
+
+            <div className="inset-x-0 bg-yellow mt-10 h-20 flex-center">
+                <h2 className="font-abril-fatface font-black text-4xl md:text-5xl">Spend $100 min. to get 30% off</h2>
+            </div>
         </div>
     </section>
  )
