@@ -8,7 +8,7 @@ const navLinks= [
         title: "Arrivals"
     },    
     {
-        id: "review",
+        id: "reviews",
         title: "Reviews"
     },    
 ];
@@ -28,7 +28,29 @@ const arrivalsList= [
     },        
 ];
 
+const reviewsList= [
+    {
+        name: "name1",
+        role: "role1",
+        profile: "images/reviews-person01.png",
+        review: "Lorem ipsum dolor sit.",
+    },
+    {
+        name: "name2",
+        role: "role2",
+        profile: "images/reviews-person02.png",
+        review: "Lorem ipsum dolor sit.",
+    },
+    {
+        name: "name2",
+        role: "role2",
+        profile: "images/reviews-person03.png",
+        review: "Lorem ipsum dolor sit.",
+    },        
+]
+
 export{
     navLinks,
-    arrivalsList
+    arrivalsList,
+    reviewsList
 }
