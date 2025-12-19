@@ -1,6 +1,26 @@
 import { navLinks } from "../../constants"
+import { useGSAP } from "@gsap/react"
+import gsap from "gsap"
 
 const Navbar= ()=>{
+    useGSAP(()=>{
+        const navTween= gsap.timeline({
+            scrollTrigger:{
+                trigger: "nav",
+                start: "top 50%"
+            }
+        })
+
+        navTween.fromTo("nav",{
+            backgroundColor: "white",
+        }, {
+            backgroundColor: "#FFFFFF50",
+            backdropFilter: 'blur(10px)',
+            duration: 1,
+            ease: "power1.inOut"
+        }
+    )})
+
     return(
         <nav>
             <div>
