@@ -89,7 +89,7 @@ body{
   .back{
     font-size: clamp(3rem, 8vw, 5rem);
     padding-right: clamp(2rem, 3vw, 12rem); /* 32px → 248px */
-    @apply text-gradient z-[1];
+    @apply text-gray z-[2];
   }
 
   /* mini text under “WITCH” area */

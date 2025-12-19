@@ -1,6 +1,25 @@
 import { reviewsList } from "../../constants"
 
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+
 const Reviews= ()=>{
+
+    useGSAP(()=>{
+        gsap.timeline({
+            scrollTrigger:{
+                trigger: "#reviews",
+                start: "top center"
+            }
+        })
+        .from(".reviews-card", {
+            xPercent: -100,
+            opacity: 0,
+            stagger: 0.2,
+            ease: "power1.inOut"
+        })
+    })
+
     return(
         <section id="reviews" className="bg-yellow">
             <div className="px-6 py-16">
@@ -8,7 +27,7 @@ const Reviews= ()=>{
                     {reviewsList.map((person)=>(
                         <div 
                             key= { person.name }
-                            className="flex flex-col justify-between bg-white rounded-xl p-8 p-4"
+                            className="reviews-card flex flex-col justify-between bg-white rounded-xl p-8 p-4"
                         >
 
                             <p className="text-lg md:text-xl mb-8 leading-snug font-semibold">"{ person.review }"</p>

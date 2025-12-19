@@ -5,6 +5,11 @@ import Download from './components/Download'
 import Reviews from './components/Reviews'
 import Contact from './components/Contact'
 
+import { ScrollTrigger, SplitText } from 'gsap/all'
+import gsap from 'gsap';
+
+gsap.registerPlugin(ScrollTrigger, SplitText);
+
 function App() {
 
   return (
@@ -15,7 +20,6 @@ function App() {
       <Download/>
       <Reviews/>
       <Contact/>
-      <div class="h-[100vh]"/>
     </main>
   )
 }
