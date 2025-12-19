@@ -20,7 +20,7 @@ const Reviews= ()=>{
                                 />
                                 <div className="leading-tight">
                                     <p className="font-bold text-base">{ person.name }</p>
-                                    <p className="font-light text-sm">{ person.role }</p>
+                                    <p className="font-light text-sm">{ person.rating }</p>
                                 </div>
                             </div>
 
